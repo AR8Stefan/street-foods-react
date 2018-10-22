@@ -1,14 +1,70 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 
+export default class Example extends React.Component {
+  constructor(props) {
+    super(props);
 
-class Nav extends Component {
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
   render() {
     return (
-      <nav className="nav">
-        test
-      </nav>
+      <div>
+        <Navbar light expand="md">
+          <NavbarToggler onClick={this.toggle} />
+           <NavbarBrand href="/">reactstrap</NavbarBrand>
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+            	<NavItem>
+                	<NavLink href="/components/">Home</NavLink>
+            	</NavItem>
+            	<NavItem>
+                	<NavLink href="https://github.com/reactstrap/reactstrap">Order</NavLink>
+            	</NavItem>
+               	<NavItem>
+               		<NavLink>
+                 		Events
+                 	</NavLink>
+               	</NavItem>
+               	<NavItem>
+               		<NavLink>
+                 		Order
+                 	</NavLink>
+               	</NavItem>
+               	<NavItem>
+               		<NavLink>
+                 		Contact Us
+                 	</NavLink>
+               	</NavItem>
+            </Nav>
+          </Collapse>
+          <NavItem>
+          	Link
+          </NavItem>
+          <NavItem>
+          	Link
+          </NavItem>
+        </Navbar>
+      </div>
     );
   }
 }
-
-export default Nav;

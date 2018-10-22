@@ -10,7 +10,9 @@ MAIN
 /***************
 NAV BAR
 ***************/
-
+nav.navbar {
+  background: gray;
+}
 
 /***************
 MAIN SECTION
